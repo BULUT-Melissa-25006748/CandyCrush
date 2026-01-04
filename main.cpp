@@ -35,9 +35,6 @@ const unsigned KCyan    (36);
 const unsigned KBGNoir    (40);
 const unsigned KBGRouge   (41);
 const unsigned KBGVert    (42);
-//const unsigned KBGJaune   (43);
-//const unsigned KBGBleu    (44);
-//const unsigned KBGMagenta (45);
 const unsigned KBGCyan    (46);
 
 /**
@@ -370,27 +367,27 @@ void boucleDeJeu(int mode) {
             clearScreen();
             couleur(KReset);
             if (niv == 1) {
-                objectifScore = 5;
+                objectifScore = 20;
                 titreNiveau = "Niveau 1 : Le quartier";
                 cout << "Tu arrives dans un vieux quartier coupe d'electricite." << endl;
                 cout << "Tout est sombre, et on entend parfois des pas au loin..." << endl;
             } else if (niv == 2) {
-                objectifScore = 10;
+                objectifScore = 40;
                 titreNiveau = "Niveau 2 : Le supermarche";
                 cout << "Tu trouves un supermarche ferme." << endl;
                 cout << "Il y a surement encore de la nourriture dedans..." << endl;
             } else if (niv == 3) {
-                objectifScore = 15;
+                objectifScore = 60;
                 titreNiveau = "Niveau 3 : Le metro";
                 cout << "Tu descends dans le metro pour traverser la ville." << endl;
                 cout << "Sans lumiere, impossible de voir..." << endl;
             } else if (niv == 4) {
-                objectifScore = 20;
+                objectifScore = 80;
                 titreNiveau = "Niveau 4 : Le centre de secours";
                 cout << "Tu trouves un ancien centre de secours abandonne." << endl;
                 cout << "Tout est eteint..." << endl;
             } else if (niv == 5) {
-                objectifScore = 30;
+                objectifScore = 100;
                 titreNiveau = "Niveau 5 : Les remparts";
                 cout << "Tu arrives devant une grande zone protegee." << endl;
                 cout << "La porte est fermee et tout est hors service." << endl;
@@ -446,7 +443,7 @@ void boucleDeJeu(int mode) {
                             matchFound = false;
                             maPosition pMatch;
                             unsigned howMany = 0;
-                            // MODIFICATION DU SCORE ICI
+                            // Pour le score
                             if (atLeastThreeInARow(grid, pMatch, howMany)) {
                                 unsigned points = howMany * grid[pMatch.ord][pMatch.abs]; // Nombre * Valeur
                                 if (mode == 2 && coups % 2 != 0) scoreJ2 += points; else score += points;
