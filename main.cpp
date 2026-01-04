@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include <vector>
-#include <ctime>
+#include <ctime> // Pour srand
 #include <string>
 
 using namespace std;
@@ -303,7 +303,8 @@ void reglesDuJeu() {
     cout << endl;
     cout << "Bonne chance !" << endl;
     cout << "\nAppuyez sur Entree pour revenir au menu...";
-    cin.ignore(100, '\n'); cin.get();
+    cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+    cin.get();
 }
 
 /**
@@ -344,7 +345,8 @@ void boucleDeJeu(int mode) {
         cout << "Et dehors, la horde attend." << endl;
         couleur(KReset);
         cout << "\nAppuyez sur Entree pour commencer l'operation de survie...";
-        cin.ignore(100, '\n'); cin.get();
+        cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+        cin.get();
     }
 
     // Les differents niveaux
@@ -459,7 +461,8 @@ void boucleDeJeu(int mode) {
                         coups++;
                     }
                 } else {
-                    cin.clear(); cin.ignore(100, '\n');
+                    cin.clear();
+                    cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
                 }
             }
         } // Fin du gameplay
@@ -499,10 +502,12 @@ void boucleDeJeu(int mode) {
 
                     if (niv < 5) {
                         cout << "\nAppuyez sur Entree pour le niveau suivant...";
-                        cin.ignore(100, '\n'); cin.get();
+                        cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+                        cin.get();
                     } else {
                         cout << "\nFIN DE L'HISTOIRE. Appuyez sur Entree pour revenir au menu...";
-                        cin.ignore(100, '\n'); cin.get();
+                        cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+                        cin.get();
                     }
                 } else {
                     // Defaite
@@ -513,14 +518,16 @@ void boucleDeJeu(int mode) {
                     couleur(KReset);
                     couleur(KBGNoir);
                     cout << "\nAppuyez sur Entree pour revenir au menu...";
-                    cin.ignore(100, '\n'); cin.get();
+                    cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+                    cin.get();
                     break; // Arrête l'histoire
                 }
             } else {
                 // Fin classique / PvP
                 cout << "\nFIN DE PARTIE. Score final : " << score << (mode == 2 ? " / J2 : " + to_string(scoreJ2) : "") << endl;
                 cout << "Appuyez sur Entree pour revenir au menu...";
-                cin.ignore(100, '\n'); cin.get();
+                cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+                cin.get();
             }
         }
     } // Fin boucle pour niveau
