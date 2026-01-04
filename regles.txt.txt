@@ -1,0 +1,27 @@
+=========================================
+       CANDY CRUSH - REGLES DU JEU
+=========================================
+
+BUT DU JEU :
+Alignez au moins 3 chiffres identiques horizontalement
+ou verticalement pour les faire disparaitre et marquer des points.
+
+LES MODES DE JEU :
+1. CLASSIQUE : Vous avez 10 coups pour faire le meilleur score.
+2. PVP : Jouez a deux sur le même écran. Chacun son tour.
+3. HISTOIRE : Survivez dans une ville infestée de zombies en rétablissant le courant. Chaque niveau demande un score précis pour être validé.
+
+COMMENT JOUER :
+1. Entrez d'abord le numéro de la LIGNE (0 a 7).
+2. Entrez ensuite le numéro de la COLONNE (0 a 7).
+3. Entrez enfin la DIRECTION du déplacement :
+   - Z : Haut
+   - S : Bas
+   - A : Gauche
+   - E : Droite
+
+Exemple de saisie : 0 1 Z (Ligne 0, Colonne 1, vers le Haut)
+
+Pour quitter une partie en cours et revenir au menu, tapez 'M'.
+
+Bonne chance !
