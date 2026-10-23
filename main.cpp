@@ -11,6 +11,7 @@
 #include <vector>
 #include <ctime> // Pour srand
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -280,30 +281,49 @@ void removalInRow (mat & grid, const maPosition & pos, unsigned howMany) {
  */
 
 /**
- * @brief Affiche les règles du jeu à l'utilisateur.
+ * @brief Lit et affiche le contenu du fichier texte des règles,
+ * ou utilise un affichage par défaut si le fichier est introuvable.
  */
-// Affiche les règles du jeu
 void reglesDuJeu() {
     couleur(KBGVert);
     clearScreen();
     couleur(KNoir);
 
-    cout << "--- REGLES DU JEU ---" << endl;
-    cout << "1. Entrez d'abord le numero de la LIGNE (0 a 7)." << endl;
-    cout << "2. Entrez ensuite le numero de la COLONNE (0 a 7)." << endl;
-    cout << "3. Entrez enfin la DIRECTION du deplacement :" << endl;
-    cout << "   - Z : Haut" << endl;
-    cout << "   - S : Bas" << endl;
-    cout << "   - A : Gauche" << endl;
-    cout << "   - E : Droite" << endl;
-    cout << endl;
-    cout << "Exemple de saisie : 0 1 Z (Ligne 0, Colonne 1, vers le Haut)" << endl;
-    cout << endl;
-    cout << "Pour quitter une partie en cours et revenir au menu, tapez 'M'." << endl;
-    cout << endl;
-    cout << "Bonne chance !" << endl;
+    // Tentative d'ouverture du fichier
+    ifstream fichier("regles.txt");
+
+    if (fichier.is_open()) {
+        // Le fichier a été trouvé, on l'affiche
+        string ligne;
+        while (getline(fichier, ligne)) {
+            cout << ligne << endl;
+        }
+        fichier.close();
+    } else {
+        // Le fichier n'a pas été trouvé, on affiche le texte en dur
+        couleur(KRouge);
+        cout << "/!\\ Fichier 'regles.txt' introuvable. Affichage par defaut :\n" << endl;
+        couleur(KNoir); // On remet la couleur du texte normal
+
+        cout << "--- REGLES DU JEU ---" << endl;
+        cout << "1. Entrez d'abord le numero de la LIGNE (0 a 7)." << endl;
+        cout << "2. Entrez ensuite le numero de la COLONNE (0 a 7)." << endl;
+        cout << "3. Entrez enfin la DIRECTION du deplacement :" << endl;
+        cout << "   - Z : Haut" << endl;
+        cout << "   - S : Bas" << endl;
+        cout << "   - A : Gauche" << endl;
+        cout << "   - E : Droite" << endl;
+        cout << endl;
+        cout << "Exemple de saisie : 0 1 Z (Ligne 0, Colonne 1, vers le Haut)" << endl;
+        cout << endl;
+        cout << "Pour quitter une partie en cours et revenir au menu, tapez 'M'." << endl;
+        cout << endl;
+        cout << "Bonne chance !" << endl;
+    }
+
+    couleur(KReset);
     cout << "\nAppuyez sur Entree pour revenir au menu...";
-    cin.ignore(100, '\n'); // Pause l'affichage pour laisser le temps de lire
+    cin.ignore(100, '\n');
     cin.get();
 }
 

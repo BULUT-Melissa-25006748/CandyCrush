@@ -5,3 +5,8 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp
+
+DISTFILES += \
+    build/regles.txt \
+    regles.txt \
+    regles.txt
